@@ -1,0 +1,81 @@
+Etapa 1: APIs REST bien diseñadas
+
+Estudiar:
+
+Verbos HTTP (GET, POST, PUT, PATCH, DELETE), idempotencia y seguridad de cada uno
+Códigos de estado: 200, 201, 204, 400, 401, 403, 404, 409, 422, 500
+Diseño de recursos y URLs (/users/{id}/orders)
+Versionado (/v1/ vs. header) y paginación (offset vs. cursor), filtros y ordenamiento
+Documentación con OpenAPI/Swagger
+
+Mini-ejercicio: una API en memoria (sin BD) de un recurso, con paginación y Swagger.
+Listo cuando: puedes justificar por qué elegiste cada verbo y código de estado.
+
+Etapa 2: Bases de datos SQL
+
+Estudiar:
+
+Modelado: relaciones 1-N, N-N, normalización
+Joins (INNER, LEFT), agregaciones, subconsultas
+Índices: qué son, cuándo ayudan y cuándo estorban; EXPLAIN
+Transacciones, ACID, niveles de aislamiento básicos
+Migraciones
+
+Práctica: PostgreSQL local con Docker. Escribe las consultas a mano antes de usar un ORM.
+Listo cuando: puedes explicar un plan de ejecución y arreglar una consulta lenta con un índice.
+
+Etapa 3: ORM
+Prisma (el más cómodo en TypeScript) o TypeORM; en Java, JPA/Hibernate
+Esquema, migraciones, relaciones, transacciones desde el ORM
+Problema N+1 y cómo evitarlo
+
+Listo cuando: reconoces el SQL que genera tu ORM y detectas un N+1.
+
+Etapa 4: NoSQL
+
+Elige una y, si quieres, haz la otra después:
+
+Redis: caché, expiración (TTL), contadores, rate limiting
+MongoDB: documentos, cuándo conviene embeber vs. referenciar, índices
+
+Listo cuando: puedes decir qué datos van en SQL y cuáles en NoSQL, y por qué.
+
+Etapa 5: Autenticación y autorización
+Hash de contraseñas (bcrypt/argon2), nunca texto plano
+JWT: estructura, expiración, access token + refresh token
+OAuth2: flujos (authorization code), login con Google
+Roles y permisos (RBAC); middleware/guards
+Seguridad básica: CORS, rate limiting, validar entradas
+
+Listo cuando: tienes registro, login, refresh y rutas protegidas por rol funcionando.
+
+Etapa 6: Validación y manejo de errores
+Validar en el borde (Zod, class-validator, Bean Validation)
+Formato de error consistente en toda la API (por ejemplo, Problem Details, RFC 7807)
+Manejo centralizado de excepciones, logs estructurados, IDs de correlación
+
+Listo cuando: ninguna entrada inválida llega a la lógica de negocio y todos los errores tienen el mismo formato.
+
+Etapa 7: Comunicación entre microservicios
+Síncrona (HTTP): timeouts, reintentos, circuit breaker
+Asíncrona (colas): RabbitMQ o Kafka; productor/consumidor, ack, reintentos, dead-letter queue
+Idempotencia de consumidores (los mensajes pueden llegar duplicados)
+Consistencia eventual y el patrón Saga (introducción)
+
+Listo cuando: sabes decidir entre HTTP y cola para un caso dado y manejas fallos de un servicio caído.
+
+Proyecto final
+
+Servicio A: Usuarios/Auth
+
+Registro, login, JWT, roles
+PostgreSQL + ORM
+
+Servicio B: Pedidos (o tareas, reservas, etc.)
+
+CRUD completo con paginación y filtros
+Valida el token de A y consulta a A por HTTP
+Publica un evento (pedido.creado) en una cola
+Un consumidor lo procesa (por ejemplo, notificación o actualización de caché en Redis)
+
+Extras: Docker Compose para levantar todo, Swagger, tests de integración, README con diagrama.

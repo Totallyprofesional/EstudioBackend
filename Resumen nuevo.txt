@@ -1,0 +1,50 @@
+Paso 1: 
+
+Definir arquitectura y Diagrama de Mcs
+
+-Definir menos 4 Mcs    
+
+Clientes: Aut usuarios (clientes/empleados), funciones usuario
+Productos: Gestion inventario (CRUD)
+Ventas: Gestion pedidos/ventas, Proceso de pagos (Tarjetas, Paypal), 
+Análisis ventas(tendencias, mas vendidos)
+
+-Elegir Tec de comunicación y justificación (REST)
+Rest es modular, ideal para comunicación entre Mcs,
+Spring web tiene soporte nativo
+
+-Diagrama servicios (como Esquema_Mcs.jpg)
+
+Resumen de Microservicios:  
+
+Esquema básico Mcs:
+-Dispositivos -> API -> Clientes < Ventas >< Productos <(Sucursales)
+-Mcs se conectan a sus BD
+-API no se conecta a Sucursales 
+
+---------------------------------------------
+
+Paso 2:
+
+@Aspect: Funcion transversal, con pointcut, advice y join point 
+(partes de código a ejecutar)
+
+Clase exception
+
+Clases acorde a los Mcs
+
+---------------------------------------------
+
+Paso 3:
+
+Confirmar CRUD con una entidad
+
+Pruebas de CRUD con Postman
+
+
+
+
+
+
+
+
