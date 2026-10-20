@@ -1,0 +1,9 @@
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\AuthServiceApplication.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\config\SecurityConfig.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\controller\AuthController.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\dto\LoginRequest.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\dto\RegistroRequest.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\model\Rol.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\model\Usuario.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\repository\UsuarioRepository.java
+D:\Programacion\Clases nuevas\Backend 2\EstudioBackend\auth-service\src\main\java\com\duoc\auth_service\service\JwtService.java
